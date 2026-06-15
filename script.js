@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* ---------------------------
        HERO SLIDESHOW
-    ----------------------------*/
+    --------------------------- */
     let index = 0;
     const slides = document.querySelectorAll(".hero-img");
 
@@ -20,7 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* ---------------------------
        SCROLL ANIMATION
-    ----------------------------*/
+       - threshold 0.05 so sections
+         trigger as soon as they
+         barely enter the viewport
+    --------------------------- */
     const sections = document.querySelectorAll("section");
 
     const observer = new IntersectionObserver(
@@ -28,16 +31,23 @@ document.addEventListener("DOMContentLoaded", function () {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("show");
+                    // Stop observing once shown — no need to re-trigger
+                    observer.unobserve(entry.target);
                 }
             });
         },
         {
-            threshold: 0.15
+            threshold: 0.05
         }
     );
 
     sections.forEach(section => {
-        observer.observe(section);
+        // Skip #home — it's always visible via CSS
+        if (section.id !== "home") {
+            observer.observe(section);
+        } else {
+            section.classList.add("show");
+        }
     });
 
 });
