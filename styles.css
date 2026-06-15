@@ -22,7 +22,6 @@ nav a:hover {
 section {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 section.show {
     opacity: 1;
