@@ -14,38 +14,41 @@ nav a {
     border-radius: 6px;
     transition: all 0.3s ease;
 }
-
 nav a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* SECTION ANIMATION */
+/* SECTION ANIMATION - hidden by default, shown by JS */
 section {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.8s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
 section.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* HOME / HERO always visible immediately - no animation needed */
+#home {
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* CARD STYLE */
 .bg-white {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .bg-white:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* BUTTON HOVER */
-a.bg-white, a.bg-blue-600 {
+a.bg-white,
+a.bg-blue-600 {
     transition: all 0.3s ease;
 }
-
 a.bg-white:hover {
     transform: scale(1.05);
 }
