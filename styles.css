@@ -8,53 +8,68 @@ body {
     transition: opacity 1.2s ease-in-out;
 }
 
-/* NAV LINKS */
+/* NAVIGATION */
 nav a {
     padding: 8px 12px;
     border-radius: 6px;
     transition: all 0.3s ease;
 }
+
 nav a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* SECTION ANIMATION - hidden by default, shown by JS */
+/* SHOW ALL SECTIONS */
 section {
-    opacity: 0;
-    transform: translateY(30px);
-}
-section.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
-/* HOME / HERO always visible immediately - no animation needed */
+/* HERO SECTION */
 #home {
-    opacity: 1 !important;
-    transform: none !important;
+    opacity: 1;
+    transform: none;
 }
 
-/* CARD STYLE */
+/* CARDS */
 .bg-white {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .bg-white:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* BUTTON HOVER */
+/* BUTTONS */
 a.bg-white,
 a.bg-blue-600 {
     transition: all 0.3s ease;
 }
-a.bg-white:hover {
+
+a.bg-white:hover,
+a.bg-blue-600:hover {
     transform: scale(1.05);
 }
 
-/* MOBILE IMPROVEMENTS */
+/* IMAGE IMPROVEMENTS */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
